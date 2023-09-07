@@ -1,0 +1,35 @@
+### Import functions ###
+#import "tfplan"
+import "http"
+import "json"
+import "time"
+
+### Input Parameters ###
+//param total_cost
+param api_key default ""
+param sub default "01b24509-e0a1-4448-87ad-03933757a88e"
+param rg default "ak-example"
+
+### Run Time Variables from tfplan mock ###
+
+
+### Other Variables ###
+timestamp = time.now
+
+
+### Build POST Call ###
+request = http.request("https://management.azure.com/subscriptions/"+sub+"/resourceGroups/"+rg+"/providers/Microsoft.Consumption/budgets?api-version=2023-05-01")
+request = request.with_header("Authorization", "Bearer "+api_key)
+request = request.with_header("Content-Type", "application/json")
+
+##  Create a variable from the GET response and unmarshal to use selectors on keys.  ##
+resp = json.unmarshal(http.get(request).body)
+maxSpend = resp.value[0].properties.amount
+currentSpend = resp.value[0].properties.currentSpend.amount
+print("maxSpend is:", maxSpend)	
+print("currentSpend is:", currentSpend)
+
+### Policy to check currentSpend vs Budget Allocated via Azure RG Budget ###
+main = rule {
+  currentSpend <= maxSpend
+}

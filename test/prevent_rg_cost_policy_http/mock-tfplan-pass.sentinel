@@ -1,0 +1,179 @@
+terraform_version = "1.5.6"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"azurerm_resource_group.ak-ML": {
+			"address":        "azurerm_resource_group.ak-ML",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "ak-ML",
+			"provider_name":  "registry.terraform.io/hashicorp/azurerm",
+			"tainted":        false,
+			"type":           "azurerm_resource_group",
+			"values": {
+				"location": "eastus2",
+				"name":     "ak-ML",
+				"tags": {
+					"costcenter": "ABC-12345",
+				},
+				"timeouts": null,
+			},
+		},
+	},
+}
+
+variables = {
+	"rg": {
+		"name":  "rg",
+		"value": "ak-ML",
+	},
+}
+
+resource_changes = {
+	"azurerm_resource_group.ak-ML": {
+		"address": "azurerm_resource_group.ak-ML",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"location": "eastus2",
+				"name":     "ak-ML",
+				"tags": {
+					"costcenter": "ABC-12345",
+				},
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"id":   true,
+				"tags": {},
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "ak-ML",
+		"provider_name":  "registry.terraform.io/hashicorp/azurerm",
+		"type":           "azurerm_resource_group",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"azurerm": {
+				"expressions": {
+					"features": [
+						{},
+					],
+				},
+				"full_name":          "registry.terraform.io/hashicorp/azurerm",
+				"name":               "azurerm",
+				"version_constraint": "3.5.0",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "azurerm_resource_group.ak-ML",
+					"expressions": {
+						"location": {
+							"constant_value": "eastus2",
+						},
+						"name": {
+							"references": [
+								"var.rg",
+							],
+						},
+						"tags": {
+							"constant_value": {
+								"costcenter": "ABC-12345",
+							},
+						},
+					},
+					"mode":                "managed",
+					"name":                "ak-ML",
+					"provider_config_key": "azurerm",
+					"schema_version":      0,
+					"type":                "azurerm_resource_group",
+				},
+			],
+			"variables": {
+				"rg": {
+					"description": "Name of Resource Group",
+				},
+			},
+		},
+	},
+	"format_version": "1.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "azurerm_resource_group.ak-ML",
+					"mode":           "managed",
+					"name":           "ak-ML",
+					"provider_name":  "registry.terraform.io/hashicorp/azurerm",
+					"schema_version": 0,
+					"sensitive_values": {
+						"tags": {},
+					},
+					"type": "azurerm_resource_group",
+					"values": {
+						"location": "eastus2",
+						"name":     "ak-ML",
+						"tags": {
+							"costcenter": "ABC-12345",
+						},
+						"timeouts": null,
+					},
+				},
+			],
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "azurerm_resource_group.ak-ML",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"location": "eastus2",
+					"name":     "ak-ML",
+					"tags": {
+						"costcenter": "ABC-12345",
+					},
+					"timeouts": null,
+				},
+				"after_sensitive": {
+					"tags": {},
+				},
+				"after_unknown": {
+					"id":   true,
+					"tags": {},
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "ak-ML",
+			"provider_name": "registry.terraform.io/hashicorp/azurerm",
+			"type":          "azurerm_resource_group",
+		},
+	],
+	"terraform_version": "1.5.6",
+	"variables": {
+		"rg": {
+			"value": "ak-ML",
+		},
+	},
+}
